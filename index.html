@@ -1,49 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet"  type = "css/text" href ="style.css"/>
+    <link rel="stylesheet"  href ="style.css"/>
     <meta charset="utf-8">
     <title>Todo Application</title>
-    <style>
-    body{
-      padding-top: 100px;
-      padding-bottom: 100px;
-      padding-left: 150px;
-      padding-right: 150px;
-      background-color: lightblue;
-   }
-    .titleBorder{
-      align-content: center;
-      width: 100%;
-      height: 100%;
-      text-align: center;
-      color : red;
-      background-color: yellow;
-      font-size: 50px;
-    }
-    .item{
-      color: blue;
-      border-top: 20px;
-      width:280px;
-      height:40px;
-      font-size: 15px;
-    }
-
-    #item_display{
-    background-color: #DCDCDC	;
-    color:green;
-    }
-  .item_delete{
-    float: right;
-    background-color: red;
-  }
-
-.buttonclick{
-  display: inline-block;
-}
-
-
-    </style>
+    <script  src = "script.js"></script>
+  </head>  
   <body>
   <div class ="titleBorder">
     To do application
@@ -60,47 +22,5 @@
       <div  onclick= "strikeItem(6)" id="clickableItem6"><li>buy online toys<button  class ='item_delete' onclick ='deleteItem(6)'>x</button></li></div>
     </ul>
   </body>
-  <script>
-    count = 6;
 
-    function addItem(){
-      var item = document.getElementById('myInput').value;
-      if (item === '') {
-         alert("You must write something!");
-      }
-      else{
-        count++;
-        var classname = 'clickableItem'+count;
-        console.log(classname);
-        var out = "<li><div onclick= 'strikeItem("+count+")'"+ "id= '"+classname+"'>"+ item +"<button  class ='item_delete' onclick ='deleteItem("+count+")'>x</button></li>"; //<href ='item' onclick ='strikeItem()'>
-        document.getElementById('item_display').innerHTML += out;
-        document.getElementById("myInput").value = "";
-      }
-    }
-    function strikeItem(num){
-      var div = document.getElementById("clickableItem"+num);
-    //  var i;
-      //for (i = 0; i < str.length; i++) {
-        //str.onclick = function() {
-
-          //var div = this;
-          div.style.textDecoration = "line-through";
-          //this.classList.toggle('red');
-      //  }
-      //}
-    }
-
-    function deleteItem(num){
-      console.log("delete the item");
-    // Click on a close button to hide the current list item
-      var div = document.getElementById("clickableItem"+num);
-      var i;
-      //for (i = 0; i < close.length; i++) {
-      //  close[i].onclick = function() {
-          //var div = this.parentElement;
-          div.style.display = "none";
-      //  }
-      //}
-    }
-  </script>
 </html>
